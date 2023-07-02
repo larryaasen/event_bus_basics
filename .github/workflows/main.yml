@@ -1,0 +1,48 @@
+name: main
+
+on:
+  pull_request:
+    types: [review_requested, opened, synchronize]
+    paths-ignore:
+      - '.gitignore'
+      - 'CHANGELOG.md'
+      - 'LICENSE'
+      - 'README.md'
+
+  push:
+    branches:
+      - '*'
+    paths-ignore:
+      - '.gitignore'
+      - 'CHANGELOG.md'
+      - 'LICENSE'
+      - 'README.md'
+
+jobs:
+  build-and-test:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        sdk: [3.0.0, stable, beta, dev]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: ${{ matrix.sdk }}
+
+      - name: Get packages
+        run: dart pub get
+
+      - name: Analyze
+        run: dart analyze
+      
+      - name: Run unit tests
+        run: dart test --coverage=coverage
+
+      - name: Upload test coverage to codecov.io
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: lcov.info
