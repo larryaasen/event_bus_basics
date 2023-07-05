@@ -1,11 +1,8 @@
 # Event Bus Basics
 
 [![GitHub main workflow](https://github.com/larryaasen/event_bus_basics/actions/workflows/main.yml/badge.svg)](https://github.com/larryaasen/event_bus_basics/actions/workflows/main.yml)
-
 [![codecov](https://codecov.io/gh/larryaasen/event_bus_basics/branch/main/graph/badge.svg)](https://app.codecov.io/gh/larryaasen/event_bus_basics)
-
 [![pub package](https://img.shields.io/pub/v/event_bus_basics.svg)](https://pub.dartlang.org/packages/event_bus_basics)
-
 [![GitHub Stars](https://img.shields.io/github/stars/larryaasen/event_bus_basics.svg)](https://github.com/larryaasen/event_bus_basics/stargazers)
 <a href="https://www.buymeacoffee.com/larryaasen">
   <img alt="Buy me a coffee" src="https://img.shields.io/badge/Donate-Buy%20Me%20A%20Coffee-yellow.svg">
@@ -33,7 +30,7 @@ onPressed: () {
 }
 ```
 It would also take a lot of work to change metrics providers or add an 
-additional one.
+additional one throughout the app.
 
 With `EventBus`, you can log one event in your code, and then create multiple
 consumers that write the event to various services.
