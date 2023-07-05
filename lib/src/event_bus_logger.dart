@@ -6,6 +6,7 @@ import 'event_bus.dart';
 
 /// An [EventBus] consumer that logs all events to [logger].
 class EventBusLogger {
+  /// Creates an [EventBusLogger] consumer that logs all events to [logger].
   EventBusLogger(this.eb, Logger logger) {
     eb.events.listen((event) {
       var prefix = '';

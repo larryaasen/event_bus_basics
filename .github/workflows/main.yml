@@ -42,12 +42,15 @@ jobs:
         run: dart test --coverage=coverage
 
       - name: Install coverage tools
+        if: ${{ matrix.sdk }} == 'stable'
         run: dart pub global activate coverage
 
       - name: Format coverage file
+        if: ${{ matrix.sdk }} == 'stable'
         run: $HOME/.pub-cache/bin/format_coverage --lcov --in=coverage --out=coverage.lcov --report-on=lib
 
       - name: Upload coverage reports to Codecov
+        if: ${{ matrix.sdk }} == 'stable'
         uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

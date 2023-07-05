@@ -5,6 +5,8 @@ import 'event_bus.dart';
 /// An [EventBus] consumer that collects events and keeps them in memory for
 /// displaying on a debug screen.
 class EventBusEventCollector {
+  /// Creates an [EventBusEventCollector] that collects events and keeps them in memory for
+  /// displaying on a debug screen.
   EventBusEventCollector(this.eventBus) {
     eventBus.events.listen((event) {
       _handleEvent(event);

@@ -61,18 +61,23 @@ final eventBus = EventBus();
 Now, you can log your events. For example, to log a tap on a button, use the
 `tap` method on `EventBus`.
 ```
-  eventBus.tap('signin_button', screen: 'SignInScreen');
+eventBus.tap('signin_button', screen: 'SignInScreen');
 ```
 
 You can also log any specific event with the `event` method on `EventBus`.
 ```
-  eventBus.event('signin_completed');
+eventBus.event('signin_completed');
+```
+
+You can easily log app level events consistently, such as cold start, resume, and version.
+```
+eventBus.app(EventBusAppEvent.coldStart);
 ```
 
 All of the methods can take a additional parameters to enhance the logging.
 These parameters are unlimited and take the form of a [Map].
 ```
-  eventBus.event('signin_completed', params: {'username': username});
+eventBus.event('signin_completed', params: {'username': username});
 ```
 
 ## Consumers
