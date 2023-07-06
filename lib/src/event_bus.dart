@@ -108,9 +108,6 @@ class EventBusEvent extends Equatable {
   final Map<String, Object?> params;
   final String from;
 
-  DateTime get created => _created;
-  final _created = DateTime.now();
-
   /// Is the name a valid event name?
   /// Valid event names are not required, but it is recommended to use.
   bool get isValidName => isValidEventName(name);
