@@ -34,8 +34,14 @@ additional one throughout the app.
 
 With `EventBus`, you can log one event in your code, and then create multiple
 consumers that write the event to various services.
+```dart
+onPressed: () {
+    eventBus.tap('sign_in', screen: 'SignInScreen'); // Good idea
+}
+```
 
-This is a similar but different kind of event bus from the
+
+Note: This is a similar but different kind of event bus from the
 package [EventBus](https://pub.dev/packages/event_bus).
 
 ## Getting Started
@@ -114,7 +120,7 @@ It is very easy to use.
 
 After `EventBusLogger` is setup, it will log every event to the logger with a format
 that looks like this:
-```
+```text
    INFO [I] TIME: 2023-07-02T18:29:34.613347 @ app.coldstart
    INFO [I] TIME: 2023-07-02T18:29:34.621539 @ tap=>signin_button - {screen: SignInScreen}
   DEBUG [D] TIME: 2023-07-02T18:29:34.621638 @ ⚡︎ SignInBloc: start signing
